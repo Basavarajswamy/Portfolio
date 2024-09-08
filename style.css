@@ -1,0 +1,290 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    /* Dark background */
+    color: #e0e0e0;
+    /* Light gray text */
+}
+
+/* Hero Section */
+.hero {
+    background: url('assets/hero-bg.jpg') no-repeat center center/cover;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    /* White text */
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Darker overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Styles */
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #45a049;
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Section Headings */
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    color: #f0f0f0;
+    /* Lighter text for headings */
+}
+
+/* Different Colors for Sections */
+#about {
+    background-color: #1a1a1a;
+    /* Darker black for the about section */
+}
+
+#skills {
+    background-color: #2c2c2c;
+    /* Slightly lighter for the skills section */
+}
+
+#projects {
+    background-color: #1a1a1a;
+    /* Alternating blackish shades */
+}
+
+#failures,
+#achievements,
+#education {
+    background-color: #2c2c2c;
+}
+
+
+
+/* Project Item Hover Animation */
+.project-item img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    /* Keep image width consistent */
+    height: 200px;
+    /* Keep a fixed height */
+    object-fit: cover;
+    /* Ensure images cover without distortion */
+}
+
+.project-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Fade-in Class for Scroll Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smooth Underline Effect for Links */
+a {
+    position: relative;
+    text-decoration: none;
+    color: #4caf50;
+    /* Green links */
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #4caf50;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Contact Form Focus Effect */
+/* Contact Section */
+#contact {
+    z-index: 1;
+    /* Ensure it's above other elements */
+    position: relative;
+}
+
+#contact {
+    background-color: #1a1a1a;
+    /* Dark, but not pitch black */
+    padding: 4rem 2rem;
+    /* Add padding to create space */
+    color: #e0e0e0;
+    /* Light gray text for readability */
+    text-align: center;
+}
+
+/* Contact Form */
+.contact-section form input,
+.contact-section form textarea {
+    width: 100%;
+    /* Full width for better visibility */
+    background-color: #333;
+    /* Darker input fields */
+    color: #fff;
+    /* Light text inside the inputs */
+    border: 1px solid #555;
+    /* Subtle border for visibility */
+    padding: 1rem;
+    margin: 1rem 0;
+    /* Spacing between inputs */
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-section form input:focus,
+.contact-section form textarea:focus {
+    border-color: #4caf50;
+    /* Green border on focus */
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    /* Subtle glow effect */
+}
+
+/* Contact Form Button */
+.contact-section form button {
+    padding: 1rem 2rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section form button:hover {
+    background-color: #45a049;
+}
+
+/* Ensure the section is visible and not collapsing */
+.contact-section {
+    min-height: 50vh;
+    /* Ensure height is adequate */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertically center the form */
+    align-items: center;
+}
+
+/* Responsive Grid */
+.skills-grid,
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Adjusted for smaller screens */
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 0 2rem;
+}
+
+.project-item {
+    background: #333;
+    /* Darker background for project items */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .cta-btn {
+        font-size: 1rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* @media (max-width: 576px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .cta-btn {
+        font-size: 0.9rem;
+    }
+
+    .project-item {
+        padding: 1rem;
+    }
+} */
